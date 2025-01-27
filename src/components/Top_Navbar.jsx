@@ -1,5 +1,5 @@
 import React from 'react';
-import delivery from "../../public/delivery-box.svg";
+import delivery from "../../public/logo/delivery-box.svg";
 
 export default function Top_Navbar() {
   return (

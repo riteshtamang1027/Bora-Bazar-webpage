@@ -1,6 +1,6 @@
 import React from "react";
 import { CircleUserRound, ShoppingBag } from "lucide-react";
-import logo from "../../public/logo.svg";
+import logo from "../../public/logo/logo.svg";
 
 export default function Middle_Navbar() {
   return (
