@@ -8,7 +8,7 @@ export default function Middle_Navbar() {
       <div className="bg-white">
         <div className="flex justify-between items-center p-6 w-11/12 mx-auto ">
           <div className="flex items-center gap-12">
-            <img src={logo} alt="" />
+            <img className="cursor-pointer" src={logo} alt="" />
             <p>Demos</p>
             <p>Categories</p>
             <p>Dietary</p>
@@ -18,7 +18,7 @@ export default function Middle_Navbar() {
           </div>
 
           <div className="flex items-center gap-8 font-medium opacity-70">
-            <div className="flex gap-2">
+            <div className="flex gap-2 cursor-pointer">
               <ShoppingBag size={25}  strokeWidth={1} />
               <p>Cart</p>
             </div>

@@ -9,8 +9,6 @@ export default function Top_Navbar() {
                 <img src={delivery} alt="" />
                 <p>Claim your online FREE Delivery or Shipping today! Expires in</p>
               </div>
-    
-              <input type="time" />
             </div>
           </div>
   )
