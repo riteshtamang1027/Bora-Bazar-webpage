@@ -43,10 +43,10 @@ export default function Best_Seller_Grocery() {
               </p>
               <p className="font-semibold opacity-80">{item.About} </p>
               <p className="mt-4 text-sm opacity-60">1 each</p>
-              <div className="absolute bg-green-400  text-white rounded-full flex items-center justify-end  right-4 p-2">
+              <div className="absolute bg-emerald-500  text-white rounded-full flex items-center justify-end  right-4 p-2">
                 {item.Icon}
               </div>
-              <div className="bg-green-400 text-white rounded-xl absolute top-4 left-4">
+              <div className="bg-emerald-500 text-white rounded-xl absolute top-4 left-4">
                 <p className="text-xs font-semibold px-2 py-1">{item.Sale} </p>
               </div>
             </div>

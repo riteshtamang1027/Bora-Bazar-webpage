@@ -1,5 +1,4 @@
 import React from "react";
-
 import Top_Navbar from "./components/Top_Navbar";
 import Middle_Navbar from "./components/Middle_Navbar";
 import Hero_Section from "./components/Hero_Section";
@@ -13,8 +12,9 @@ export default function App() {
       <Middle_Navbar />
       <Hero_Section />
       <Banner/>
+      {/* 
       <Food_Items/>
-      <Best_Seller_Grocery/>
+      <Best_Seller_Grocery/> */}
     </div>
   );
 }
