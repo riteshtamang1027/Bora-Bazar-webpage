@@ -21,7 +21,7 @@ export default function Hero_Section() {
           disableOnInteraction: false,
         }}
         modules={[Pagination, Autoplay]}
-        className="mySwiper h-[70vh] md:h-[80vh] object-cover w-11/12 mx-auto rounded-xl "
+        className="mySwiper h-[56vh] md:h-[80vh] object-cover w-11/12 mx-auto rounded-xl "
       >
         <SwiperSlide>
           <div className="relative">

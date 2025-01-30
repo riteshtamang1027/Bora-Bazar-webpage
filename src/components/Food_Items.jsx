@@ -41,7 +41,7 @@ export default function Food_Items() {
         </div>
 
         <Swiper
-          slidesPerView={7}
+          slidesPerView={2}
           spaceBetween={30}
           loop={true}
           pagination={{
@@ -50,6 +50,23 @@ export default function Food_Items() {
           autoplay={{
             delay: 2500,
             disableOnInteraction: false,
+          }}
+          breakpoints={{
+            640: {
+              slidesPerView: 3,
+            },
+            768: {
+              slidesPerView: 4,
+            },
+            1024: {
+              slidesPerView: 6,
+            },
+            1280: {
+              slidesPerView: 7,
+            },
+            1536: {
+              slidesPerView: 8,
+            },
           }}
           modules={[Autoplay,Pagination]}
           className="mySwiper h-[40vh]"
