@@ -6,7 +6,7 @@ import forth_image from "../../public/banner/img4.jpg";
 
 export default function Banner() {
   return (
-    <div className=" ">
+    
       <div className="w-11/12  mx-auto flex items-center justify-center gap-4 md:gap-8 mt-8 ">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4 lg:grid-cols-3 ">
           <div className="flex items-center justify-center rounded-xl space-x-4  bg-amber-100 px-2 py-2 h-[20vh] ">
@@ -72,6 +72,5 @@ export default function Banner() {
           </div>
         </div>
       </div>
-    </div>
   );
 }

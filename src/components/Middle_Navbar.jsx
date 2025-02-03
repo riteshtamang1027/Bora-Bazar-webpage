@@ -1,22 +1,24 @@
 import React from "react";
 import { CircleUserRound, Menu, ShoppingBag } from "lucide-react";
 import logo from "../../public/logo/logo.svg";
+import { NavLink } from "react-router-dom";
 
 export default function Middle_Navbar() {
   return (
     <div className="bg-white">
       <div className="flex justify-between items-center p-4 lg:p-6 w-11/12 mx-auto ">
         <div className="flex items-center gap-2 lg:gap-8 xl:gap-12">
-          <img className="cursor-pointer" src={logo} alt="" />
+         <img className="cursor-pointer" src={logo} alt="" />
 
           <div className="hidden md:block">
             <div className="flex  items-center gap-4 lg:gap-8 xl:gap-12">
-              <p>Demos</p>
-              <p>Categories</p>
-              <p>Dietary</p>
-              <p>Search</p>
-              <p>Shops</p>
-              <p>Pages</p>
+              <NavLink to={"/"}>Home</NavLink>
+              <NavLink to={"/demos"}>Demos</NavLink>
+              <NavLink to={"/category"}>Categories</NavLink>
+              <NavLink to={"/dietary"}>Dietary </NavLink>
+              <NavLink to={"/search"}>Search</NavLink>
+              <NavLink to={"/shop"}>Shops</NavLink>
+              <NavLink to={"/blog"}>blog</NavLink>
             </div>
           </div>
         </div>

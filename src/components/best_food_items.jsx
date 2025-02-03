@@ -16,7 +16,7 @@ export default function Best_Food_Items() {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 lg:grid-cols-3 gap-4 mt-12">
         {Item.map((item, index) => (
-          <div className="border border-gray-100 rounded-xl max-sm:space-y-2 shadow-2xs overflow-hidden hover:cursor-pointer">
+          <div key={index} className="border border-gray-100 rounded-xl max-sm:space-y-2 shadow-2xs overflow-hidden hover:cursor-pointer">
             <img
               className="rounded-t-xl hover:scale-105 duration-300 w-[100vw] "
               src={item.Image}
