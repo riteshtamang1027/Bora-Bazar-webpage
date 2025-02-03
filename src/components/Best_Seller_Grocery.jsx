@@ -17,6 +17,8 @@ import img15 from "../../public/popular_grocery/15.webp";
 
 
 import { Eye, Plus } from "lucide-react";
+import { NavLink } from "react-router-dom";
+import Single_Best_Seller from "../pages/single-best-seller";
 
 export default function Best_Seller_Grocery() {
   return (
@@ -30,26 +32,11 @@ export default function Best_Seller_Grocery() {
             We provide best quality & fresh grocery items near your location
           </p>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-5 gap-4 mt-4">
+       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-5 gap-4 mt-4">
           {Items.map((item, index) => (
-            <div
-              key={index}
-              className="flex flex-col justify-center items-center border border-gray-100 relative space-y-2 px-8 py-4  hover:shadow-2xs cursor-pointer rounded-xl mt-8"
-            >
-              <img className="hover:scale-110 duration-200" src={item.Image} alt="image" />
-              <p className="font-semibold">
-                {item.Now_Price}{" "}
-                <span className="opacity-50">{item.I_Price}</span>
-              </p>
-              <p className="font-semibold opacity-80 text-center">{item.About} </p>
-              <p className="mt-4 text-sm opacity-60">1 each</p>
-              <div className="absolute bg-emerald-500  text-white rounded-full flex items-center justify-end  right-4 max-sm:bottom-4 p-2">
-                {item.Icon}
-              </div>
-              <div className="bg-emerald-500 text-white rounded-xl absolute top-4 left-4">
-                <p className="text-xs font-semibold px-2 py-1">{item.Sale} </p>
-              </div>
-            </div>
+          
+            <Single_Best_Seller key={index} item={item} />
+          
           ))}
         </div>
       </div>

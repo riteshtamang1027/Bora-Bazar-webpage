@@ -12,6 +12,7 @@ import Search from "./pages/search.jsx";
 import Upper_Botton from "./components/upper_botton.jsx";
 import Top_Navbar from "./components/Top_Navbar.jsx";
 import Middle_Navbar from "./components/Middle_Navbar.jsx";
+import Single_Product from "./pages/single-product.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -26,6 +27,8 @@ createRoot(document.getElementById("root")).render(
         <Route path="/shop" element={<Shop />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/search" element={<Search />} />
+        <Route path="/single_product/:id" element={<Single_Product/>} />
+
       </Routes>
       <Upper_Botton />
     </BrowserRouter>

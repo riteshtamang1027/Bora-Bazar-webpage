@@ -9,9 +9,9 @@ import Bottom_Footer from "./bottom-footer";
 export default function Upper_Botton() {
   return (
     
-  <div className=" mt-24 ">
-      <div className="flex justify-between w-11/12  mx-auto ">
-        <div className="grid grid-rows-3 min-sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 min-md:space-x-40">
+  < div className=" mt-24  w-11/12  mx-auto ">
+      
+        <div className="grid  min-sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 2xl:grid-cols-5 min-md:space-x-40">
         <div className=" space-y-8  p-4 w-full min-xl:w-[20vw] ">
           <img className="cursor-pointer" src={logo} alt="" />
           <p className="opacity-70 leading-[2] ">
@@ -72,9 +72,7 @@ export default function Upper_Botton() {
         </div>
        
         </div>
-        
-      </div>
-      <hr className="text-gray-300 w-11/12 mx-auto "/>
+      <hr className="text-gray-300  "/>
         <Bottom_Footer/>
     </div>
     
