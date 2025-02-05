@@ -1,7 +1,7 @@
 import React from "react";
 import { CircleUserRound, Menu, ShoppingBag } from "lucide-react";
 import logo from "../../public/logo/logo.svg";
-import { NavLink } from "react-router-dom";
+import { NavLink } from "react-router";
 
 export default function Middle_Navbar() {
   return (

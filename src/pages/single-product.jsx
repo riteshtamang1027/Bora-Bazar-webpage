@@ -15,11 +15,17 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
+import 'react-inner-image-zoom/lib/InnerImageZoom/styles.css'
+import InnerImageZoom from 'react-inner-image-zoom'
+
+
 
 import { FreeMode, Thumbs } from "swiper/modules";
 
 export default function Single_Product() {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const [count,setCount]=useState(1);
+ 
 
   return (
     <div className="grid grid-cols-2 w-11/12 mt-24 mx-auto px-6">
@@ -32,7 +38,7 @@ export default function Single_Product() {
             className="mySwiper2 max-sm:h-[60vh] max-sm:top-24"
           >
             <SwiperSlide>
-              <img className="object-cover" src={first} alt="" />
+              <InnerImageZoom className="" src={first} alt="" />
             </SwiperSlide>
             <SwiperSlide>
               <img className="object-cover" src={second} alt="" />
@@ -80,22 +86,22 @@ export default function Single_Product() {
 
         <div className="bg-gray-200 rounded-md w-max">
           <p className=" text-xl opacity-80 md:space-x-12 space-x-12 md:px-29 px-16 py-1 md:py-2">
-            <span className="">-</span>
-            <span>1</span>
-            <span>+</span>
+            <span onClick={(e)=>setCount( count? count-1: 0 )} className="cursor-pointer">-</span>
+            <span>{count}</span>
+            <span onClick={(e)=>setCount(count+1)} className="cursor-pointer">+</span>
           </p>
         </div>
 
-        <div className="flex items-center bg-teal-500 gap-x-2   md:px-29 px-16 py-1 md:py-2 rounded-md w-max  text-white">
+        <div className="flex items-center bg-teal-500 gap-x-2 cursor-pointer  md:px-29 px-16 py-1 md:py-2 rounded-md w-max  text-white">
           <LiaShoppingBagSolid className="opacity-90" size={25} />
           <p className="font-semibold text-lg ">Add to Cart</p>
         </div>
         <div className="flex gap-x-2">
-          <div className="border border-gray-300 rounded-md w-max flex items-center gap-x-2 md:px-12 px-6 md:py-2 py-1 font-semibold max-md:text-sm hover:text-teal-500">
+          <div className="border border-gray-300  cursor-pointer  rounded-md w-max flex items-center gap-x-2 md:px-12 px-6 md:py-2 py-1 font-semibold max-md:text-sm hover:text-teal-500">
             <Heart size={24} strokeWidth={1} />
             <p>Wishlist</p>
           </div>
-          <div className="border border-gray-300 rounded-md w-max flex items-center gap-x-2 md:px-12 px-6 md:py-2 py-1 font-semibold max-md:text-sm hover:text-teal-500">
+          <div className="border border-gray-300  cursor-pointer  rounded-md w-max flex items-center gap-x-2 md:px-12 px-6 md:py-2 py-1 font-semibold max-md:text-sm hover:text-teal-500">
             <PiShareFatThin size={24} />
             <p>Share</p>
           </div>
@@ -105,16 +111,16 @@ export default function Single_Product() {
           <p className="font-semibold opacity-70 max-sm:text-sm">Tags:</p>
           <div className="flex justify-between items-center  gap-2 ">
             <div className="grid grid-cols-1 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 gap-2  justify-center  ">
-              <div className=" border border-gray-300 rounded-md hover:bg-gray-200 text-sm font-semibold opacity-60 w-max px-2 py-1">
+              <div className=" border border-gray-300 cursor-pointer  rounded-md hover:bg-gray-200 text-sm font-semibold opacity-60 w-max px-2 py-1">
                 <p>Fresh food</p>
               </div>
-              <div className=" border border-gray-300 rounded-md hover:bg-gray-200 text-sm font-semibold opacity-60 w-max px-2 py-1">
+              <div className=" border border-gray-300  cursor-pointer  rounded-md hover:bg-gray-200 text-sm font-semibold opacity-60 w-max px-2 py-1">
                 <p>Organic</p>
               </div>
-              <div className=" border border-gray-300 rounded-md hover:bg-gray-200 text-sm font-semibold opacity-60 w-max px-2 py-1">
+              <div className=" border border-gray-300  cursor-pointer  rounded-md hover:bg-gray-200 text-sm font-semibold opacity-60 w-max px-2 py-1">
                 <p>Cilantro</p>
               </div>
-              <div className=" border border-gray-300 rounded-md hover:bg-gray-200 text-sm font-semibold opacity-60 w-max px-2 py-1">
+              <div className=" border border-gray-300  cursor-pointer rounded-md hover:bg-gray-200 text-sm font-semibold opacity-60 w-max px-2 py-1">
                 <p>Dry Food</p>
               </div>
             </div>
