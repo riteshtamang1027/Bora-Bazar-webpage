@@ -17,7 +17,6 @@ import img15 from "../../public/popular_grocery/15.webp";
 
 
 import { Eye, Plus } from "lucide-react";
-import { NavLink } from "react-router-dom";
 import Single_Best_Seller from "../pages/single-best-seller";
 
 export default function Best_Seller_Grocery() {
