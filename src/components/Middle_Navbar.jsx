@@ -30,7 +30,7 @@ export default function Middle_Navbar() {
             <p className="hidden md:block">Cart</p>
           </div>
 
-          <div className="flex gap-1 xl:gap-2 items-center">
+          <div className="flex gap-1 xl:gap-2 items-center cursor-pointer">
             <CircleUserRound size={25} strokeWidth={1} />
             <p className="whitespace-nowrap hidden md:block">Sign In</p>
           </div>
