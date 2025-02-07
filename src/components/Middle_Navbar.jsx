@@ -33,7 +33,7 @@ const Name="Sign In"
           </div>
 
           <div className="flex gap-1 xl:gap-2 items-center cursor-pointer">
-            <CircleUserRound size={25} strokeWidth={1} />
+            <CircleUserRound onClick={onClick} size={25} strokeWidth={1} />
             <p onClick={onClick}  className="whitespace-nowrap hidden md:block">{Name}</p>
            
           </div>
