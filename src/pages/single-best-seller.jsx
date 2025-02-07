@@ -6,7 +6,7 @@ export default function Single_Best_Seller({ item }) {
     <div>
 <NavLink  to={`/single_product/${item.About}`}>
         
-        <div className="flex flex-col justify-center items-center border border-gray-300 shadow-xl  h-[46vh] relative space-y-2 px-8 py-4  hover:shadow-2xs cursor-pointer rounded-xl mt-8 ">
+        <div className="flex flex-col justify-center items-center border border-gray-300 shadow-xl h-[40vh]  sm:h-[46vh] relative space-y-2 px-8 py-4  hover:shadow-2xs cursor-pointer rounded-xl mt-8 ">
     <img
       className="hover:scale-110 duration-200"
       src={item.Image}

@@ -3,7 +3,9 @@ import { CircleUserRound, Menu, ShoppingBag } from "lucide-react";
 import logo from "../../public/logo/logo.svg";
 import { NavLink } from "react-router";
 
-export default function Middle_Navbar() {
+export default function Middle_Navbar({onClick}) {
+  
+const Name="Sign In"
   return (
     <div className="bg-white">
       <div className="flex justify-between items-center p-4 lg:p-6 w-11/12 mx-auto ">
@@ -32,8 +34,10 @@ export default function Middle_Navbar() {
 
           <div className="flex gap-1 xl:gap-2 items-center cursor-pointer">
             <CircleUserRound size={25} strokeWidth={1} />
-            <p className="whitespace-nowrap hidden md:block">Sign In</p>
+            <p onClick={onClick}  className="whitespace-nowrap hidden md:block">{Name}</p>
+           
           </div>
+
         </div>
       </div>
     </div>
