@@ -7,7 +7,7 @@ import "swiper/css/pagination";
 import { Autoplay, Pagination } from "swiper/modules";
 export default function Hero_Section() {
   return (
-    <div className="">
+    <div className="mt-8">
       <Swiper
         pagination={{
           dynamicBullets: true,
