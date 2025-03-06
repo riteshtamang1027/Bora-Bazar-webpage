@@ -69,6 +69,7 @@ export const updateCategoryById = async (req, res) => {
   try {
  
     //  file update 
+    let cloudinaryResponce;
     if (req.file) {
       const cloudinaryResponce = await cloudinary.uploader.upload(req.file.path);
       const updateCategory = await Categories.findByIdAndUpdate(
