@@ -3,10 +3,16 @@ import mongoose from "mongoose";
 import categoriesRoute from "./route/categoriesRoute.js";
 import userRoute from './route/userRoute.js'
 import "dotenv/config";
+import cors from 'cors'
 //app config
 const app = express();
 // middlewire
 app.use(express.json());
+app.use(cors(
+  {
+    origin: 'http://localhost:5173'   
+  }
+))
 
 // database connect 
 try {

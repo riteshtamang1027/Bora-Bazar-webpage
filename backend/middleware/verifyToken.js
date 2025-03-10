@@ -11,7 +11,7 @@ export const verifyToken = async (req, res, next) => {
   }
 
   jwt.verify(pureToken, "This_is_my_secret_key", function (err, decoded) {
-    console.log(decoded.foo); // bar
+    console.log(decoded); // bar
     if (err) {
       return res.status(401).json({
         message: "Token found but token invailde",
