@@ -16,7 +16,7 @@ router.get("/", getAllCategories);
 // get single category
 router.get("/:id", getSingleCategoryById);
 // update category
-router.patch("/:id", updateCategoryById);
+router.patch("/:id",upload.single("imgurl"), updateCategoryById);
 // delete category
 router.delete("/:id", deleteCategoryById);
 

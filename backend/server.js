@@ -1,6 +1,8 @@
 import express from "express";
 import mongoose from "mongoose";
 import categoriesRoute from "./route/categoriesRoute.js";
+import productsRoute from "./route/productsRoute.js";
+
 import userRoute from './route/userRoute.js'
 import "dotenv/config";
 import cors from 'cors'
@@ -23,6 +25,7 @@ try {
 }
  
 app.use("/Categories", categoriesRoute);
+app.use("/products",productsRoute)
 app.use("/User",userRoute);
 
 app.get("/", (req, res) => {
