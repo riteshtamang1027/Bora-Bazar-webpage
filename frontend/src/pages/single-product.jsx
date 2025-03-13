@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import first from "../../public/single-product/1.webp";
 import second from "../../public/single-product/2.webp";
 import third from "../../public/single-product/3.webp";
@@ -15,17 +15,33 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
-import 'react-inner-image-zoom/lib/InnerImageZoom/styles.css'
-import InnerImageZoom from 'react-inner-image-zoom'
-
-
+import "react-inner-image-zoom/lib/InnerImageZoom/styles.css";
+import InnerImageZoom from "react-inner-image-zoom";
 
 import { FreeMode, Thumbs } from "swiper/modules";
+import axios from "axios";
+import { useLocation } from "react-router";
 
 export default function Single_Product() {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
-  const [count,setCount]=useState(1);
- 
+  const [count, setCount] = useState(1);
+  const location = useLocation();
+  const product_id = location.pathname.split("/")[2];
+  const [singelProduct, setsingelProduct] = useState();
+
+  const fetchingSingleProduct = async () => {
+    try {
+      const response = await axios.get(
+        `http://localhost:4007/products/${product_id}`
+      );
+      setsingelProduct(response.data.data);
+    } catch (error) {
+      console.log("something went wrong to fetch single product.", error);
+    }
+  };
+  useEffect(() => {
+    fetchingSingleProduct();
+  }, [product_id]);
 
   return (
     <div className="grid grid-cols-2 w-11/12 mt-24 mx-auto px-6">
@@ -38,13 +54,17 @@ export default function Single_Product() {
             className="mySwiper2 max-sm:h-[60vh] max-sm:top-24"
           >
             <SwiperSlide>
-              <InnerImageZoom className="" src={first} alt="" />
+              <InnerImageZoom className="" src={singelProduct?.imgurl} alt="" />
             </SwiperSlide>
             <SwiperSlide>
               <img className="object-cover" src={second} alt="" />
             </SwiperSlide>
             <SwiperSlide>
-              <img className=" md:mt-26 md:ml-20 ml-6 mt-  w-[30vw]" src={third} alt="" />
+              <img
+                className=" md:mt-26 md:ml-20 ml-6 mt-  w-[30vw]"
+                src={third}
+                alt=""
+              />
             </SwiperSlide>
           </Swiper>
         </div>
@@ -70,12 +90,12 @@ export default function Single_Product() {
 
       <div className="md:ml-24 ml-8 space-y-2 md:space-y-8">
         <p className="md:text-3xl text-xl font-semibold opacity-80 whitespace-nowrap">
-          Fresh Green Leaf Lettuce
+          {singelProduct?.name}
         </p>
         <p className="text-sm font-semibold opacity-50">1 each</p>
         <p className="space-x-1">
-          <span className="font-bold  md:text-xl">$2.64</span>
-          <span className="opacity-50  md:text-lg">$2.74</span>
+          <span className="font-bold  md:text-xl">${singelProduct?.price}</span>
+          <span className="opacity-50  md:text-lg line-through">${singelProduct?.previousPrice}</span>
           <span className="  text-green-800 max-md:text-sm bg-green-200 py-1 px-2 rounded-sm opacity-50 font-bold">
             4% OFF
           </span>
@@ -86,9 +106,19 @@ export default function Single_Product() {
 
         <div className="bg-gray-200 rounded-md w-max">
           <p className=" text-xl opacity-80 md:space-x-12 space-x-12 md:px-29 px-16 py-1 md:py-2">
-            <span onClick={(e)=>setCount( count? count-1: 0 )} className="cursor-pointer">-</span>
+            <span
+              onClick={(e) => setCount(count ? count - 1 : 0)}
+              className="cursor-pointer"
+            >
+              -
+            </span>
             <span>{count}</span>
-            <span onClick={(e)=>setCount(count+1)} className="cursor-pointer">+</span>
+            <span
+              onClick={(e) => setCount(count + 1)}
+              className="cursor-pointer"
+            >
+              +
+            </span>
           </p>
         </div>
 
@@ -137,9 +167,6 @@ export default function Single_Product() {
           </p>
         </div>
       </div>
-
-
-      
     </div>
   );
 }

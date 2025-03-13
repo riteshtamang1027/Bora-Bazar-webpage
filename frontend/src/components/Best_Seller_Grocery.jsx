@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import img1 from "../../public/popular_grocery/1.webp";
 import img2 from "../../public/popular_grocery/2.webp";
 import img3 from "../../public/popular_grocery/3.webp";
@@ -14,31 +14,51 @@ import img13 from "../../public/popular_grocery/13.webp";
 import img14 from "../../public/popular_grocery/14.webp";
 import img15 from "../../public/popular_grocery/15.webp";
 
-
-
 import { Eye, Plus } from "lucide-react";
 import Single_Best_Seller from "../pages/single-best-seller";
+import axios from "axios";
 
 export default function Best_Seller_Grocery() {
+  const [isfetching, setisfetching] = useState(false);
+  const fetchAllProducts = async () => {
+   
+    try {
+      setisfetching(true)
+      const response = await axios.get("http://localhost:4007/products");
+      
+      setallProducts(response.data.data);
+      setisfetching(false);
+    } catch (error) {
+      console.log("something went wrong to fetch Product.", error);
+      setisfetching(false)
+    }
+  };
+  const [allProducts, setallProducts] = useState();
+  useEffect(() => {
+    fetchAllProducts();
+  }, []);
+
   return (
     <div>
+     { isfetching?
+      <p>Loading...</p>
+      :
       <div className="w-11/12 mx-auto mt-24 ">
-        <div className="grid items-center  text-center space-y-4">
-          <p className="text-2xl font-semibold opacity-90">
-            Best seller grocery near you
-          </p>
-          <p className="opacity-70">
-            We provide best quality & fresh grocery items near your location
-          </p>
-        </div>
-       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-5 gap-4 mt-4">
-          {Items.map((item, index) => (
-          
-            <Single_Best_Seller key={index} item={item} />
-          
-          ))}
-        </div>
+      <div className="grid items-center  text-center space-y-4">
+        <p className="text-2xl font-semibold opacity-90">
+          Best seller grocery near you
+        </p>
+        <p className="opacity-70">
+          We provide best quality & fresh grocery items near your location
+        </p>
       </div>
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-5 gap-4 mt-4">
+        {allProducts?.map((item, index) => (
+          <Single_Best_Seller key={index} item={item} />
+        ))}
+      </div>
+    </div>
+     }
     </div>
   );
 }
@@ -69,7 +89,7 @@ const Items = [
     About: "Fresh Express Iceberg Garden Salad Blend",
     Per: "1 each",
     Sale: "DISCOUNT",
-    Icon: <Eye size={24}/>,
+    Icon: <Eye size={24} />,
   },
   {
     Image: img4,
@@ -96,7 +116,7 @@ const Items = [
     About: "Fresh Organic Broccoli",
     Per: "1 each",
     Sale: "ON SALE",
-    Icon: <Eye size={24}/>,
+    Icon: <Eye size={24} />,
   },
   {
     Image: img7,
@@ -123,7 +143,7 @@ const Items = [
     About: "Lay's Bar-B-Que Potato Chips",
     Per: "1 each",
     Sale: "ON SALE",
-    Icon: <Eye size={24}/>,
+    Icon: <Eye size={24} />,
   },
   {
     Image: img11,
@@ -141,7 +161,7 @@ const Items = [
     About: "Organic Green Cabbage",
     Per: "1 each",
     Sale: "ON SALE",
-    Icon: <Eye size={24}/>,
+    Icon: <Eye size={24} />,
   },
   {
     Image: img13,
@@ -150,7 +170,7 @@ const Items = [
     About: "Gourmet Garden™ Lightly Dried Cilantro",
     Per: "1 each",
     Sale: "ON SALE",
-    Icon: <Eye size={24}/>,
+    Icon: <Eye size={24} />,
   },
   {
     Image: img14,
@@ -159,7 +179,7 @@ const Items = [
     About: "Calavo Fresh Avocados",
     Per: "1 each",
     Sale: "DISCOUNT",
-    Icon: <Eye size={24}/>,
+    Icon: <Eye size={24} />,
   },
   {
     Image: img15,
@@ -170,8 +190,4 @@ const Items = [
     Sale: "DISCOUNT",
     Icon: <Plus size={24} />,
   },
-  
-  
-  
-
 ];

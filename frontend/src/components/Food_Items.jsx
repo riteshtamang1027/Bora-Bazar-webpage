@@ -22,7 +22,7 @@ export default function Food_Items() {
     }
   };
   const [getallCategory, setCategory] = useState();
-  console.log(getallCategory);
+ 
 
   useEffect(() => {
     fetchAllCategories();
